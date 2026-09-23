@@ -94,7 +94,6 @@
             <button onclick="filterCategory('all')" id="cat-btn-all" class="px-4 py-2 rounded-xl text-xs font-bold bg-amber-600 text-white whitespace-nowrap shadow-sm transition">
                 Semua Menu
             </button>
-            <!-- Tombol kategori dimuat otomatis dari JavaScript -->
         </div>
 
         <!-- Daftar Menu Grid -->
@@ -215,7 +214,6 @@
 
         function renderCategoryFilters() {
             const container = document.getElementById('category-filters');
-            // Pertahankan tombol "Semua"
             let html = `<button onclick="filterCategory('all')" id="cat-btn-all" class="px-4 py-2 rounded-xl text-xs font-bold ${currentCategory === 'all' ? 'bg-amber-600 text-white shadow-sm' : 'bg-white text-gray-600 border border-gray-200 hover:bg-gray-100'} whitespace-nowrap transition">Semua Menu</button>`;
             
             categoriesList.forEach(cat => {
@@ -381,7 +379,16 @@
             if (note) text += `\n*Catatan/Alamat:* ${note}`;
             text += `\n\n*Total Keseluruhan: Rp ${totalPrice.toLocaleString('id-ID')}*`;
 
-            const url = `https://wa.me/${menuData.whatsapp}?text=${encodeURIComponent(text)}`;
+            const encodedText = encodeURIComponent(text);
+            const isMobile = /iPhone|iPad|iPod|Android/i.test(navigator.userAgent);
+
+            let url = "";
+            if (isMobile) {
+                url = `whatsapp://send?phone=${menuData.whatsapp}&text=${encodedText}`;
+            } else {
+                url = `https://wa.me/${menuData.whatsapp}?text=${encodedText}`;
+            }
+
             window.open(url, '_blank');
         }
 

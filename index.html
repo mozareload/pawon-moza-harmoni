@@ -16,10 +16,10 @@
 <body class="bg-gray-50 text-gray-800 antialiased min-h-screen flex flex-col justify-between pb-28">
 
     <div>
-        <!-- Teks Berjalan (Running Text) Pengumuman Pengembangan Web -->
-        <div class="bg-amber-800 text-amber-100 text-xs py-2 overflow-hidden whitespace-nowrap shadow-inner border-b border-amber-900/40 relative z-20">
-            <div class="inline-block animate-[marquee_28s_linear_infinite] px-4 font-medium">
-                ✨ Selamat datang! Website katalog ini saat ini masih dalam tahap pengembangan. Jika ada saran, kritik, atau penambahan fitur/menu yang diperlukan, dengan senang hati kami mengundang Anda untuk menghubungi pengembang langsung via WhatsApp di <a href="https://wa.me/6281315521666?text=Halo%20pengembang,%20saya%20memiliki%20masukan%20untuk%20website%20Pawon%20Moza%20Harmoni." target="_blank" class="underline font-bold text-white hover:text-amber-200">0813-1552-1666</a>. Terima kasih atas dukungan Anda! ✨
+        <!-- Running Text / Marquee di Paling Atas (Isi diganti Deskripsi Porsi Besar/Hajatan) -->
+        <div class="bg-amber-900 text-amber-100 text-xs py-2 overflow-hidden whitespace-nowrap shadow-inner">
+            <div class="inline-block animate-[marquee_25s_linear_infinite]">
+                📢 Selamat Datang di Pawon Moza Harmoni! &nbsp;&bull;&nbsp; Kami siap melayani pesanan porsi besar & catering acara: Hajatan Pernikahan, Aqiqah, Tasyakuran, Arisan, Rapat Kantor, dan Acara Keluarga. &nbsp;&bull;&nbsp; Cita rasa masakan rumahan yang lezat dan higienis. &nbsp;&bull;&nbsp; Hubungi kami via WhatsApp untuk konsultasi menu & penawaran khusus! 📢
             </div>
         </div>
 
@@ -27,6 +27,12 @@
             @keyframes marquee {
                 0% { transform: translateX(100%); }
                 100% { transform: translateX(-100%); }
+            }
+            .animate-\[marquee_25s_linear_infinite\] {
+                animation: marquee 25s linear infinite;
+            }
+            .animate-\[marquee_25s_linear_infinite\]:hover {
+                animation-play-state: paused;
             }
         </style>
 
@@ -52,21 +58,6 @@
         <!-- Main Content -->
         <main class="max-w-3xl mx-auto px-4 mt-6">
             
-            <!-- Banner Layanan Catering / Porsi Besar -->
-            <div class="mb-6 bg-gradient-to-br from-amber-50 to-orange-50 border border-amber-200/80 rounded-2xl p-4 sm:p-5 shadow-sm flex items-start gap-3.5">
-                <div class="bg-amber-600 text-white p-2.5 rounded-xl shadow-sm flex-shrink-0 mt-0.5">
-                    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4"></path>
-                    </svg>
-                </div>
-                <div>
-                    <h2 class="font-bold text-gray-800 text-sm sm:text-base">Menerima Pesanan Porsi Besar & Catering Acara</h2>
-                    <p class="text-xs sm:text-sm text-gray-600 mt-1 leading-relaxed">
-                        Kami siap melayani kebutuhan konsumsi untuk berbagai acara spesial Anda seperti <span class="font-semibold text-amber-800">hajatan pernikahan, aqiqah, tasyakuran, arisan, rapat kantor, maupun acara keluarga</span> dengan cita rasa masakan rumahan yang lezat dan higienis. Hubungi kami via WhatsApp untuk konsultasi menu dan penawaran khusus.
-                    </p>
-                </div>
-            </div>
-
             <!-- Search Section -->
             <div class="mb-6">
                 <div class="relative shadow-sm">

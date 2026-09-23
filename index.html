@@ -16,6 +16,20 @@
 <body class="bg-gray-50 text-gray-800 antialiased min-h-screen flex flex-col justify-between pb-28">
 
     <div>
+        <!-- Teks Berjalan (Running Text) Pengumuman Pengembangan Web -->
+        <div class="bg-amber-800 text-amber-100 text-xs py-2 overflow-hidden whitespace-nowrap shadow-inner border-b border-amber-900/40 relative z-20">
+            <div class="inline-block animate-[marquee_28s_linear_infinite] px-4 font-medium">
+                ✨ Selamat datang! Website katalog ini saat ini masih dalam tahap pengembangan. Jika ada saran, kritik, atau penambahan fitur/menu yang diperlukan, dengan senang hati kami mengundang Anda untuk menghubungi pengembang langsung via WhatsApp di <a href="https://wa.me/6281315521666?text=Halo%20pengembang,%20saya%20memiliki%20masukan%20untuk%20website%20Pawon%20Moza%20Harmoni." target="_blank" class="underline font-bold text-white hover:text-amber-200">0813-1552-1666</a>. Terima kasih atas dukungan Anda! ✨
+            </div>
+        </div>
+
+        <style>
+            @keyframes marquee {
+                0% { transform: translateX(100%); }
+                100% { transform: translateX(-100%); }
+            }
+        </style>
+
         <!-- Header / Banner -->
         <header class="bg-gradient-to-r from-amber-600 to-amber-700 text-white shadow-lg">
             <div class="max-w-3xl mx-auto px-4 py-6 text-center">
@@ -190,8 +204,6 @@
                 const qty = cart[item.id] || 0;
                 const card = document.createElement('div');
                 card.className = "bg-white border border-gray-100 rounded-2xl p-4 shadow-sm flex flex-col justify-between hover:shadow-md transition relative overflow-hidden group";
-                
-                // Badge dihapus total sesuai permintaan agar tampilan bersih & tidak menutupi teks penting
 
                 card.innerHTML = `
                     <div>

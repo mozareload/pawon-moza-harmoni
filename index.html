@@ -12,16 +12,23 @@
     </style>
 </head>
 <body class="bg-gray-50 text-gray-800 antialiased pb-24">
+
+    <!-- Header / Banner -->
     <header class="bg-amber-600 text-white shadow-md">
         <div class="max-w-3xl mx-auto px-4 py-6 text-center">
             <h1 class="text-2xl font-bold tracking-tight">PAWON MOZA HARMONI</h1>
             <p class="text-amber-100 text-sm mt-1">Aneka Menu Rumahan Lezat & Higienis</p>
+            <!-- Status Toko Badge -->
             <div id="store-status" class="inline-block mt-3 px-3 py-1 rounded-full text-xs font-semibold bg-emerald-700 text-emerald-100">
                 🟢 Toko Buka - Silakan Pesan
             </div>
         </div>
     </header>
+
+    <!-- Main Content -->
     <main class="max-w-3xl mx-auto px-4 mt-6">
+        
+        <!-- Search & Filter Section -->
         <div class="mb-6 space-y-4">
             <div class="relative">
                 <input type="text" id="search-input" placeholder="Cari menu kesukaan Anda..." 
@@ -30,12 +37,21 @@
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path>
                 </svg>
             </div>
+
+            <!-- Kategori Filter -->
             <div id="category-container" class="flex gap-2 overflow-x-auto pb-2 scrollbar-none">
                 <button onclick="filterCategory('all')" class="cat-btn px-4 py-2 bg-amber-600 text-white text-xs font-semibold rounded-full whitespace-nowrap shadow-sm transition">Semua Menu</button>
             </div>
         </div>
-        <div id="menu-container" class="grid grid-cols-1 sm:grid-cols-2 gap-4"></div>
+
+        <!-- Daftar Menu Grid -->
+        <div id="menu-container" class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+            <!-- Data dimuat dinamis dari JavaScript -->
+        </div>
+
     </main>
+
+    <!-- Floating Cart Bar -->
     <div id="cart-bar" class="fixed bottom-0 left-0 right-0 bg-white border-t border-gray-200 shadow-lg p-4 transition-transform duration-300 transform translate-y-full">
         <div class="max-w-3xl mx-auto flex items-center justify-between">
             <div>
@@ -48,6 +64,8 @@
             </button>
         </div>
     </div>
+
+    <!-- Modal Keranjang / Checkout -->
     <div id="cart-modal" class="fixed inset-0 bg-black/50 z-50 hidden flex items-end sm:items-center justify-center p-0 sm:p-4">
         <div class="bg-white w-full max-w-lg rounded-t-2xl sm:rounded-2xl max-h-[90vh] flex flex-col shadow-2xl animate-slide-up">
             <div class="p-4 border-b border-gray-100 flex items-center justify-between">
@@ -56,126 +74,206 @@
                     <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/></svg>
                 </button>
             </div>
-            <div id="cart-items-list" class="p-4 overflow-y-auto flex-1 space-y-3"></div>
+            <div id="cart-items-list" class="p-4 overflow-y-auto flex-1 space-y-3">
+                <!-- Item keranjang -->
+            </div>
             <div class="p-4 border-t border-gray-100 bg-gray-50 space-y-3 rounded-b-2xl">
                 <div>
                     <label class="block text-xs font-semibold text-gray-600 mb-1">Catatan Tambahan / Alamat Pengiriman</label>
                     <input type="text" id="buyer-note" placeholder="Contoh: Kurang pedas, alamat Jl. Mawar No. 5" class="w-full px-3 py-2 bg-white border border-gray-200 rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-amber-500">
                 </div>
                 <button onclick="sendToWhatsApp()" class="w-full bg-emerald-600 hover:bg-emerald-700 text-white font-bold py-3 rounded-xl shadow-md transition flex items-center justify-center gap-2 text-sm">
+                    <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981zm11.387-5.464c-.074-.124-.272-.198-.57-.347-.297-.149-1.758-.868-2.031-.967-.272-.099-.47-.149-.669.149-.198.297-.768.967-.941 1.165-.173.198-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.095 3.2 5.076 4.487.709.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414z"/></svg>
                     <span>Kirim Pesanan via WhatsApp</span>
                 </button>
             </div>
         </div>
     </div>
+
+    <!-- JavaScript Aplikasi -->
     <script>
         let menuData = { whatsapp: "6281234567890", categories: [], items: [] };
         let cart = {};
         let currentCategory = 'all';
+
+        // Cek Jam Operasional Toko (Permanen Buka)
+        function checkStoreStatus() {
+            const statusEl = document.getElementById('store-status');
+            if (statusEl) {
+                statusEl.textContent = "🟢 Toko Buka - Silakan Pesan";
+                statusEl.className = "inline-block mt-3 px-3 py-1 rounded-full text-xs font-semibold bg-emerald-700 text-emerald-100";
+            }
+        }
+
+        // Ambil Data dari menu.json
         async function loadMenu() {
             try {
-                const res = await fetch('menu.json');
-                menuData = await res.json();
+                const response = await fetch('menu.json');
+                menuData = await response.json();
                 renderCategories();
                 renderMenu();
-            } catch (e) { console.error(e); }
+            } catch (error) {
+                console.error('Gagal memuat menu:', error);
+            }
         }
+
         function renderCategories() {
-            const c = document.getElementById('category-container');
+            const container = document.getElementById('category-container');
+            if (!container) return;
             menuData.categories.forEach(cat => {
-                const b = document.createElement('button');
-                b.className = "cat-btn px-4 py-2 bg-white text-gray-600 border border-gray-200 text-xs font-semibold rounded-full whitespace-nowrap shadow-sm transition hover:bg-amber-50";
-                b.textContent = cat.name;
-                b.onclick = () => filterCategory(cat.id, b);
-                c.appendChild(b);
+                const btn = document.createElement('button');
+                btn.className = `cat-btn px-4 py-2 bg-white text-gray-600 border border-gray-200 text-xs font-semibold rounded-full whitespace-nowrap shadow-sm transition hover:bg-amber-50`;
+                btn.textContent = cat.name;
+                btn.onclick = () => filterCategory(cat.id, btn);
+                container.appendChild(btn);
             });
         }
-        function filterCategory(id, el) {
-            currentCategory = id;
-            document.querySelectorAll('.cat-btn').forEach(b => b.className = "cat-btn px-4 py-2 bg-white text-gray-600 border border-gray-200 text-xs font-semibold rounded-full whitespace-nowrap shadow-sm transition hover:bg-amber-50");
-            if(el) el.className = "cat-btn px-4 py-2 bg-amber-600 text-white text-xs font-semibold rounded-full whitespace-nowrap shadow-sm transition";
+
+        function filterCategory(catId, element) {
+            currentCategory = catId;
+            document.querySelectorAll('.cat-btn').forEach(b => {
+                b.className = "cat-btn px-4 py-2 bg-white text-gray-600 border border-gray-200 text-xs font-semibold rounded-full whitespace-nowrap shadow-sm transition hover:bg-amber-50";
+            });
+            if(element) {
+                element.className = "cat-btn px-4 py-2 bg-amber-600 text-white text-xs font-semibold rounded-full whitespace-nowrap shadow-sm transition";
+            } else {
+                const firstBtn = document.querySelector('.cat-btn');
+                if(firstBtn) firstBtn.className = "cat-btn px-4 py-2 bg-amber-600 text-white text-xs font-semibold rounded-full whitespace-nowrap shadow-sm transition";
+            }
             renderMenu();
         }
+
         function renderMenu() {
             const container = document.getElementById('menu-container');
-            const search = document.getElementById('search-input').value.toLowerCase();
+            const searchInput = document.getElementById('search-input');
+            if (!container) return;
+            const searchTerm = searchInput ? searchInput.value.toLowerCase() : '';
             container.innerHTML = '';
-            const filtered = menuData.items.filter(i => (currentCategory === 'all' || i.category === currentCategory) && (i.name.toLowerCase().includes(search) || i.desc.toLowerCase().includes(search)));
+
+            const filtered = menuData.items.filter(item => {
+                const matchCat = currentCategory === 'all' || item.category === currentCategory;
+                const matchSearch = item.name.toLowerCase().includes(searchTerm) || item.desc.toLowerCase().includes(searchTerm);
+                return matchCat && matchSearch;
+            });
+
             if (filtered.length === 0) {
                 container.innerHTML = `<p class="col-span-full text-center text-gray-400 py-8 text-sm">Menu tidak ditemukan.</p>`;
                 return;
             }
+
             filtered.forEach(item => {
-                const q = cart[item.id] || 0;
+                const qty = cart[item.id] || 0;
                 const card = document.createElement('div');
                 card.className = "bg-white border border-gray-100 rounded-2xl p-4 shadow-sm flex flex-col justify-between hover:shadow-md transition";
                 card.innerHTML = `
-                    <div class="flex gap-4">
-                        <img src="${item.image}" alt="${item.name}" class="w-20 h-20 object-cover rounded-xl bg-gray-100 flex-shrink-0">
-                        <div class="flex-1 min-w-0">
-                            <h4 class="font-bold text-sm text-gray-800 truncate">${item.name}</h4>
-                            <p class="text-xs text-gray-500 mt-1 line-clamp-2">${item.desc}</p>
+                    <div>
+                        <div class="flex gap-4">
+                            <img src="${item.image}" alt="${item.name}" class="w-20 h-20 object-cover rounded-xl bg-gray-100 flex-shrink-0">
+                            <div class="flex-1 min-w-0">
+                                <h4 class="font-bold text-sm text-gray-800 truncate">${item.name}</h4>
+                                <p class="text-xs text-gray-500 mt-1 line-clamp-2">${item.desc}</p>
+                            </div>
                         </div>
                     </div>
                     <div class="mt-4 flex items-center justify-between pt-3 border-t border-gray-50">
                         <span class="font-bold text-amber-600 text-sm">Rp ${item.price.toLocaleString('id-ID')}</span>
                         <div class="flex items-center gap-2">
-                            ${q > 0 ? `<button onclick="updateCart('${item.id}', -1)" class="w-8 h-8 rounded-lg bg-gray-100 text-gray-600 font-bold flex items-center justify-center">-</button><span class="text-sm font-bold w-4 text-center">${q}</span>` : ''}
-                            <button onclick="updateCart('${item.id}', 1)" class="px-3 py-1.5 bg-amber-600 hover:bg-amber-700 text-white rounded-lg text-xs font-semibold shadow-sm transition">${q > 0 ? '+' : 'Tambah'}</button>
+                            ${qty > 0 ? `
+                                <button onclick="updateCart('${item.id}', -1)" class="w-8 h-8 rounded-lg bg-gray-100 text-gray-600 font-bold flex items-center justify-center hover:bg-gray-200">-</button>
+                                <span class="text-sm font-bold w-4 text-center">${qty}</span>
+                            ` : ''}
+                            <button onclick="updateCart('${item.id}', 1)" class="px-3 py-1.5 bg-amber-600 hover:bg-amber-700 text-white rounded-lg text-xs font-semibold shadow-sm transition">
+                                ${qty > 0 ? '+' : 'Tambah'}
+                            </button>
                         </div>
-                    </div>`;
+                    </div>
+                `;
                 container.appendChild(card);
             });
         }
-        document.getElementById('search-input').addEventListener('input', renderMenu);
-        function updateCart(id, d) {
-            cart[id] = (cart[id] || 0) + d;
-            if (cart[id] <= 0) delete cart[id];
+
+        const searchEl = document.getElementById('search-input');
+        if(searchEl) {
+            searchEl.addEventListener('input', renderMenu);
+        }
+
+        function updateCart(itemId, delta) {
+            cart[itemId] = (cart[itemId] || 0) + delta;
+            if (cart[itemId] <= 0) delete cart[itemId];
             updateCartUI();
             renderMenu();
         }
+
         function updateCartUI() {
-            let count = 0, price = 0;
+            let totalCount = 0;
+            let totalPrice = 0;
+
             for (let id in cart) {
                 const item = menuData.items.find(i => i.id === id);
-                if (item) { count += cart[id]; price += item.price * cart[id]; }
+                if (item) {
+                    totalCount += cart[id];
+                    totalPrice += item.price * cart[id];
+                }
             }
-            document.getElementById('cart-count').textContent = count;
-            document.getElementById('cart-total').textContent = `Rp ${price.toLocaleString('id-ID')}`;
-            const bar = document.getElementById('cart-bar');
-            if (count > 0) bar.classList.remove('translate-y-full');
-            else bar.classList.add('translate-y-full');
+
+            document.getElementById('cart-count').textContent = totalCount;
+            document.getElementById('cart-total').textContent = `Rp ${totalPrice.toLocaleString('id-ID')}`;
+
+            const cartBar = document.getElementById('cart-bar');
+            if (totalCount > 0) {
+                cartBar.classList.remove('translate-y-full');
+            } else {
+                cartBar.classList.add('translate-y-full');
+            }
         }
+
         function openCartModal() {
             const list = document.getElementById('cart-items-list');
             list.innerHTML = '';
+            
             for (let id in cart) {
                 const item = menuData.items.find(i => i.id === id);
                 if (item) {
                     const row = document.createElement('div');
                     row.className = "flex items-center justify-between text-sm py-2 border-b border-gray-50";
-                    row.innerHTML = `<div><p class="font-semibold text-gray-800">${item.name}</p><p class="text-xs text-gray-500">Rp ${item.price.toLocaleString('id-ID')} x ${cart[id]}</p></div><div class="font-bold text-amber-600">Rp ${(item.price * cart[id]).toLocaleString('id-ID')}</div>`;
+                    row.innerHTML = `
+                        <div>
+                            <p class="font-semibold text-gray-800">${item.name}</p>
+                            <p class="text-xs text-gray-500">Rp ${item.price.toLocaleString('id-ID')} x ${cart[id]}</p>
+                        </div>
+                        <div class="font-bold text-amber-600">Rp ${(item.price * cart[id]).toLocaleString('id-ID')}</div>
+                    `;
                     list.appendChild(row);
                 }
             }
             document.getElementById('cart-modal').classList.remove('hidden');
         }
-        function closeCartModal() { document.getElementById('cart-modal').classList.add('hidden'); }
+
+        function closeCartModal() {
+            document.getElementById('cart-modal').classList.add('hidden');
+        }
+
         function sendToWhatsApp() {
             let text = "Halo Pawon Moza Harmoni, saya ingin memesan:\n\n";
-            let total = 0;
+            let totalPrice = 0;
+
             for (let id in cart) {
                 const item = menuData.items.find(i => i.id === id);
                 if (item) {
                     text += `- ${item.name} (${cart[id]}x) = Rp ${(item.price * cart[id]).toLocaleString('id-ID')}\n`;
-                    total += item.price * cart[id];
+                    totalPrice += item.price * cart[id];
                 }
             }
+
             const note = document.getElementById('buyer-note').value;
             if (note) text += `\nCatatan: ${note}`;
-            text += `\n*Total Keseluruhan: Rp ${total.toLocaleString('id-ID')}*`;
-            window.open(`https://wa.me/${menuData.whatsapp}?text=${encodeURIComponent(text)}`, '_blank');
+            text += `\n*Total Keseluruhan: Rp ${totalPrice.toLocaleString('id-ID')}*`;
+
+            const url = `https://wa.me/${menuData.whatsapp}?text=${encodeURIComponent(text)}`;
+            window.open(url, '_blank');
         }
+
+        checkStoreStatus();
         loadMenu();
     </script>
 </body>

@@ -2,12 +2,12 @@
   "store_name": "PAWON MOZA HARMONI",
   "tagline": "Sentuhan Rasa Autentik Masakan Rumahan Berkualitas",
   "whatsapp": "6282110203644",
-  "operational_hours": "Buka Setiap Hari: 09.00 - 21.00 WIB",
-  "address": "Layanan Antar Pesan & COD Area Lokal",
+  "operational_hours": "Buka Setiap Hari: 08.00 - 20.00 WIB",
+  "address": "Layanan Antar Pesan, COD, & Catering Acara",
   "categories": [
     {
-      "id": "utama",
-      "name": "🍲 Menu Masakan Matang",
+      "id": "masakan-matang",
+      "name": "🍲 Aneka Masakan Matang & Menu Utama",
       "items": [
         {
           "id": "m1",
@@ -40,28 +40,54 @@
           "badge": "Lezat",
           "desc": "Siomay hangat gurih disajikan lengkap bersama siraman bumbu kacang khas yang mantap.",
           "image": "https://images.unsplash.com/photo-1541658016709-82535e94bc69?w=500"
-        }
-      ]
-    },
-    {
-      "id": "minuman",
-      "name": "🥤 Minuman & Penyegar",
-      "items": [
+        },
         {
           "id": "m5",
-          "name": "Es Teh Manis Melati",
-          "price": 5000,
-          "badge": "Segar",
-          "desc": "Teh pilihan berkualitas dengan aroma melati alami dan manis gula tebu asli.",
-          "image": "https://images.unsplash.com/photo-1556679343-c7306c1976bc?w=500"
+          "name": "Rendang Daging Sapi (Dummy)",
+          "price": 25000,
+          "badge": "Spesial",
+          "desc": "Daging sapi pilihan dimasak lama dengan santan dan rempah tradisional hingga empuk meresap.",
+          "image": "https://images.unsplash.com/photo-1603048588665-791ca8aea617?w=500"
         },
         {
           "id": "m6",
-          "name": "Es Jeruk Peras Murni",
-          "price": 7000,
-          "badge": "Vitamin C",
-          "desc": "Terbuat dari 100% buah jeruk segar pilihan yang diperas langsung setiap ada pesanan.",
-          "image": "https://images.unsplash.com/photo-1613478223719-2ab802602423?w=500"
+          "name": "Gulai Ayam Kampung (Dummy)",
+          "price": 22000,
+          "badge": "Gurih",
+          "desc": "Ayam kampung pilihan berkuah gulai kuning kental yang kaya rempah dan menggugah selera.",
+          "image": "https://images.unsplash.com/photo-1589302168068-964664d93dc0?w=500"
+        },
+        {
+          "id": "m7",
+          "name": "Ikan Balado Padang (Dummy)",
+          "price": 18000,
+          "badge": "Pedas",
+          "desc": "Ikan segar digoreng pas lalu dilumuri sambal balado merah segar yang pedas nikmat.",
+          "image": "https://images.unsplash.com/photo-1534422298391-e4f8c172dddb?w=500"
+        },
+        {
+          "id": "m8",
+          "name": "Sayur Lodeh Komplit (Dummy)",
+          "price": 10000,
+          "badge": "Sehat",
+          "desc": "Aneka sayuran segar dalam kuah santan gurih beraroma kencur dan daun jeruk.",
+          "image": "https://images.unsplash.com/photo-1540420773420-3366772f4999?w=500"
+        },
+        {
+          "id": "m9",
+          "name": "Tumis Kangkung Belacan (Dummy)",
+          "price": 8000,
+          "badge": "Fresh",
+          "desc": "Kangkung segar ditumis cepat dengan bumbu terasi udang pilihan yang harum dan renyah.",
+          "image": "https://images.unsplash.com/photo-1550547660-d9450f859349?w=500"
+        },
+        {
+          "id": "m10",
+          "name": "Sate Ayam Madura (Dummy)",
+          "price": 20000,
+          "badge": "Favorit",
+          "desc": "Sate ayam empuk dibakar harum, disiram bumbu kacang kental legit dan taburan bawang goreng.",
+          "image": "https://images.unsplash.com/photo-1555939594-58d7cb561ad1?w=500"
         }
       ]
     }

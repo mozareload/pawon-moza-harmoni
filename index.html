@@ -102,6 +102,7 @@
             const hour = now.getHours();
             const statusEl = document.getElementById('store-status');
             
+            /* Non-aktifkan pengecekan jam sementara, paksa selalu Buka
             if (hour >= 8 && hour < 21) {
                 statusEl.textContent = "🟢 Toko Buka - Silakan Pesan";
                 statusEl.className = "inline-block mt-3 px-3 py-1 rounded-full text-xs font-semibold bg-emerald-700 text-emerald-100";
@@ -109,8 +110,12 @@
                 statusEl.textContent = "🔴 Toko Tutup - Pesanan Diproses Besok";
                 statusEl.className = "inline-block mt-3 px-3 py-1 rounded-full text-xs font-semibold bg-rose-700 text-rose-100";
             }
+            */
+            
+            // Status permanen Buka
+            statusEl.textContent = "🟢 Toko Buka - Silakan Pesan";
+            statusEl.className = "inline-block mt-3 px-3 py-1 rounded-full text-xs font-semibold bg-emerald-700 text-emerald-100";
         }
-
         // Ambil Data dari menu.json
         async function loadMenu() {
             try {

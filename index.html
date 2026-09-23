@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PAWON MOZA HARMONI - Masakan Rumahan Berkualitas</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        body { font-family: 'Plus Jakarta Sans', sans-serif; }
+    </style>
+</head>
+<body class="bg-stone-50 text-stone-800 pb-32">
+
+    <!-- Header / Hero Section -->
+    <header class="bg-gradient-to-r from-amber-800 via-orange-700 to-amber-900 text-white shadow-xl">
+        <div class="max-w-5xl mx-auto px-4 py-12 text-center">
+            <span class="bg-orange-600/60 border border-orange-400 text-orange-100 text-xs font-semibold px-3 py-1 rounded-full uppercase tracking-widest inline-block mb-3">Kuliner Rumahan Autentik</span>
+            <h1 id="store-name" class="text-3xl md:text-5xl font-extrabold tracking-tight mb-2">PAWON MOZA HARMONI</h1>
+            <p id="store-tagline" class="text-orange-100 text-sm md:text-lg max-w-xl mx-auto italic font-light mb-6">Sentuhan Rasa Autentik Masakan Rumahan Berkualitas</p>
+            
+            <div class="flex flex-wrap justify-center items-center gap-3 text-xs md:text-sm bg-black/20 backdrop-blur-sm py-2 px-4 rounded-xl max-w-lg mx-auto border border-white/10">
+                <span id="store-hours">🕒 Buka Setiap Hari</span>
+                <span class="text-orange-300">•</span>
+                <span id="store-address">📍 Layanan Pesan Antar</span>
+            </div>
+        </div>
+    </header>
+
+    <!-- Navigasi Kategori Cepat -->
+    <nav class="sticky top-0 bg-white/90 backdrop-blur-md shadow-sm z-30 border-b border-stone-200 py-3 px-4">
+        <div id="category-nav" class="max-w-5xl mx-auto flex gap-3 overflow-x-auto no-scrollbar">
+            <!-- Tombol kategori dinamis -->
+        </div>
+    </nav>
+
+    <!-- Konten Menu Utama -->
+    <main class="max-w-5xl mx-auto px-4 mt-8">
+        <div id="menu-container">
+            <!-- Menu dimuat dinamis -->
+        </div>
+    </main>
+
+    <!-- Modal Detail Keranjang (Pop-up saat keranjang diklik) -->
+    <div id="cart-modal" class="fixed inset-0 bg-black/60 backdrop-blur-sm z-50 hidden flex items-end md:items-center justify-center p-0 md:p-4">
+        <div class="bg-white w-full max-w-lg rounded-t-3xl md:rounded-2xl shadow-2xl overflow-hidden max-h-[90vh] flex flex-col">
+            <div class="bg-orange-700 text-white p-4 flex justify-between items-center">
+                <h3 class="font-bold text-lg">🛒 Ringkasan Pesanan Anda</h3>
+                <button onclick="toggleCartModal()" class="text-white/80 hover:text-white font-bold text-xl">&times;</button>
+            </div>
+            
+            <div id="cart-items-list" class="p-4 overflow-y-auto flex-1 divide-y divide-stone-100">
+                <!-- Daftar item di keranjang -->
+            </div>
+
+            <div class="p-4 bg-stone-50 border-t border-stone-200">
+                <div class="mb-3">
+                    <label class="block text-xs font-semibold text-stone-600 mb-1">Catatan Tambahan untuk Pemilik (Opsional):</label>
+                    <input type="text" id="order-note" placeholder="Contoh: Sambal dipisah, alamat patokan rumah cat hijau..." class="w-full text-sm border border-stone-300 rounded-xl px-3 py-2 focus:outline-none focus:ring-2 focus:ring-orange-500">
+                </div>
+                
+                <div class="flex justify-between items-center mb-4">
+                    <span class="text-stone-600 font-medium">Total Pembayaran:</span>
+                    <span id="modal-total-price" class="text-xl font-extrabold text-orange-700">Rp 0</span>
+                </div>
+
+                <div class="flex gap-2">
+                    <button onclick="clearCart()" class="bg-stone-200 hover:bg-stone-300 text-stone-700 px-4 py-3 rounded-xl font-semibold text-sm transition">Kosongkan</button>
+                    <button onclick="checkoutWhatsApp()" class="flex-1 bg-emerald-600 hover:bg-emerald-700 text-white py-3 px-6 rounded-xl font-bold shadow-md transition flex items-center justify-center gap-2">
+                        📲 Lanjutkan Pesanan via WhatsApp
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Floating Cart Bar (Bawah Layar) -->
+    <div id="cart-bar" class="fixed bottom-0 left-0 right-0 bg-stone-900/95 backdrop-blur-md text-white border-t border-stone-800 shadow-2xl p-4 transform translate-y-full transition-transform duration-300 z-40">
+        <div class="max-w-5xl mx-auto flex justify-between items-center">
+            <div class="cursor-pointer" onclick="toggleCartModal()">
+                <p class="text-xs text-orange-400 font-semibold uppercase tracking-wider">Keranjang Aktif</p>
+                <p class="text-base md:text-lg font-bold"><span id="cart-count">0</span> Menu • <span id="cart-total" class="text-emerald-400">Rp 0</span></p>
+            </div>
+            <button onclick="toggleCartModal()" class="bg-orange-600 hover:bg-orange-700 text-white px-5 py-2.5 rounded-xl font-bold text-sm shadow-md transition flex items-center gap-2">
+                Lihat Pesanan 🛍️
+            </button>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="bg-stone-900 text-stone-400 text-center py-8 mt-16 text-sm border-t border-stone-800">
+        <p class="font-semibold text-stone-300">PAWON MOZA HARMONI</p>
+        <p class="mt-1">Dibuat dengan higienis dan bahan-bahan pilihan terbaik.</p>
+        <p class="mt-4 text-xs text-stone-500">&copy; 2026 PAWON MOZA HARMONI. Hak cipta dilindungi.</p>
+    </footer>
+
+    <!-- Skrip Logika Profesional -->
+    <script>
+        let storeData = {};
+        let cart = {};
+
+        fetch('menu.json')
+            .then(response => response.json())
+            .then(data => {
+                storeData = data;
+                document.getElementById('store-name').innerText = data.store_name;
+                document.getElementById('store-tagline').innerText = data.tagline;
+                document.getElementById('store-hours').innerText = data.operational_hours;
+                document.getElementById('store-address').innerText = data.address;
+
+                renderCategoryNav(data);
+                renderMenu(data);
+            })
+            .catch(error => console.error('Gagal memuat data menu:', error));
+
+        function renderCategoryNav(data) {
+            const nav = document.getElementById('category-nav');
+            nav.innerHTML = '';
+            data.categories.forEach(cat => {
+                nav.innerHTML += `
+                    <a href="#cat-${cat.id}" class="bg-stone-100 hover:bg-orange-100 text-stone-700 hover:text-orange-800 px-4 py-2 rounded-full text-xs md:text-sm font-semibold whitespace-nowrap transition border border-stone-200">
+                        ${cat.name}
+                    </a>
+                `;
+            });
+        }
+
+        function renderMenu(data) {
+            const container = document.getElementById('menu-container');
+            container.innerHTML = '';
+
+            data.categories.forEach(category => {
+                let categoryHTML = `
+                    <div id="cat-${category.id}" class="mb-12 scroll-mt-24">
+                        <div class="flex items-center gap-3 mb-6">
+                            <h2 class="text-2xl font-extrabold text-stone-900">${category.name}</h2>
+                            <div class="flex-1 h-0.5 bg-stone-200"></div>
+                        </div>
+                        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                `;
+
+                category.items.forEach(item => {
+                    let badgeHtml = item.badge ? `<span class="absolute top-3 left-3 bg-orange-600 text-white text-xs font-bold px-3 py-1 rounded-full shadow-md">${item.badge}</span>` : '';
+
+                    categoryHTML += `
+                        <div class="bg-white rounded-2xl shadow-sm hover:shadow-md transition-all duration-300 overflow-hidden flex flex-col justify-between border border-stone-200/80 group">
+                            <div class="relative">
+                                <img src="${item.image}" alt="${item.name}" class="w-full h-52 object-cover group-hover:scale-105 transition duration-500">
+                                ${badgeHtml}
+                            </div>
+                            <div class="p-5 flex-1 flex flex-col justify-between">
+                                <div>
+                                    <h3 class="font-bold text-lg text-stone-900 leading-snug">${item.name}</h3>
+                                    <p class="text-orange-600 font-extrabold text-base mt-1.5">Rp ${item.price.toLocaleString('id-ID')}</p>
+                                    <p class="text-stone-500 text-xs md:text-sm mt-2.5 leading-relaxed">${item.desc}</p>
+                                </div>
+                                <div class="mt-5">
+                                    <button onclick="addToCart('${item.id}', '${item.name}', ${item.price})" class="w-full bg-stone-900 hover:bg-orange-600 text-white font-semibold py-2.5 px-4 rounded-xl transition duration-200 shadow-sm flex items-center justify-center gap-2 text-sm">
+                                        ➕ Tambah ke Pesanan
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    `;
+                });
+
+                categoryHTML += `</div></div>`;
+                container.innerHTML += categoryHTML;
+            });
+        }
+
+        function addToCart(id, name, price) {
+            if (!cart[id]) {
+                cart[id] = { name: name, price: price, qty: 1 };
+            } else {
+                cart[id].qty += 1;
+            }
+            updateCartUI();
+        }
+
+        function changeQty(id, change) {
+            if (cart[id]) {
+                cart[id].qty += change;
+                if (cart[id].qty <= 0) {
+                    delete cart[id];
+                }
+            }
+            updateCartUI();
+            renderCartModalList();
+        }
+
+        function updateCartUI() {
+            let totalItems = 0;
+            let totalPrice = 0;
+            
+            for (let id in cart) {
+                totalItems += cart[id].qty;
+                totalPrice += cart[id].price * cart[id].qty;
+            }
+
+            document.getElementById('cart-count').innerText = totalItems;
+            document.getElementById('cart-total').innerText = 'Rp ' + totalPrice.toLocaleString('id-ID');
+            document.getElementById('modal-total-price').innerText = 'Rp ' + totalPrice.toLocaleString('id-ID');
+
+            const cartBar = document.getElementById('cart-bar');
+            if (totalItems > 0) {
+                cartBar.classList.remove('translate-y-full');
+            } else {
+                cartBar.classList.add('translate-y-full');
+                document.getElementById('cart-modal').classList.add('hidden');
+            }
+        }
+
+        function toggleCartModal() {
+            let totalItems = 0;
+            for (let id in cart) totalItems += cart[id].qty;
+            if (totalItems === 0) return;
+
+            const modal = document.getElementById('cart-modal');
+            modal.classList.toggle('hidden');
+            if (!modal.classList.contains('hidden')) {
+                renderCartModalList();
+            }
+        }
+
+        function renderCartModalList() {
+            const listContainer = document.getElementById('cart-items-list');
+            listContainer.innerHTML = '';
+
+            let hasItems = false;
+            for (let id in cart) {
+                hasItems = true;
+                let item = cart[id];
+                let subtotal = item.price * item.qty;
+
+                listContainer.innerHTML += `
+                    py-3 flex justify-between items-center">
+                        <div>
+                            <h4 class="font-bold text-stone-800 text-sm">${item.name}</h4>
+                            <p class="text-xs text-stone-500">Rp ${item.price.toLocaleString('id-ID')} x ${item.qty}</p>
+                        </div>
+                        <div class="flex items-center gap-3">
+                            <span class="font-bold text-stone-900 text-sm">Rp ${subtotal.toLocaleString('id-ID')}</span>
+                            <div class="flex items-center border border-stone-300 rounded-lg overflow-hidden bg-stone-50">
+                                <button onclick="changeQty('${id}', -1)" class="px-2.5 py-1 text-stone-600 hover:bg-stone-200 font-bold text-xs">-</button>
+                                <span class="px-2.5 text-xs font-semibold">${item.qty}</span>
+                                <button onclick="changeQty('${id}', 1)" class="px-2.5 py-1 text-stone-600 hover:bg-stone-200 font-bold text-xs">+</button>
+                            </div>
+                        </div>
+                    </div>
+                `;
+            }
+
+            if (!hasItems) {
+                document.getElementById('cart-modal').classList.add('hidden');
+            }
+        }
+
+        function clearCart() {
+            cart = {};
+            updateCartUI();
+            document.getElementById('cart-modal').classList.add('hidden');
+        }
+
+        function checkoutWhatsApp() {
+            if (Object.keys(cart).length === 0) return;
+
+            let note = document.getElementById('order-note').value;
+            let message = `Halo *${storeData.store_name}*, saya ingin memesan menu berikut:\n\n`;
+            let totalPrice = 0;
+
+            for (let id in cart) {
+                let itemTotal = cart[id].price * cart[id].qty;
+                totalPrice += itemTotal;
+                message += `▪️ ${cart[id].name} (x${cart[id].qty}) - Rp ${itemTotal.toLocaleString('id-ID')}\n`;
+            }
+
+            if (note.trim() !== '') {
+                message += `\n📝 *Catatan:* ${note}\n`;
+            }
+
+            message += `\n*Total Keseluruhan: Rp ${totalPrice.toLocaleString('id-ID')}*\n\nMohon konfirmasi ketersediaan dan total pembayarannya. Terima kasih!`;
+
+            let encodedMessage = encodeURIComponent(message);
+            let waUrl = `https://wa.me/${storeData.whatsapp}?text=${encodedMessage}`;
+            window.open(waUrl, '_blank');
+        }
+    </script>
+</body>
+</html>

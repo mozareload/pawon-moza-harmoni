@@ -1,0 +1,61 @@
+{
+  "store_name": "PAWON MOZA HARMONI",
+  "tagline": "Sentuhan Rasa Autentik Masakan Rumahan Berkualitas",
+  "whatsapp": "6281234567890",
+  "operational_hours": "Buka Setiap Hari: 09.00 - 21.00 WIB",
+  "address": "Layanan Antar Pesan & COD Area Lokal",
+  "categories": [
+    {
+      "id": "utama",
+      "name": "🍲 Menu Utama & Andalan",
+      "items": [
+        {
+          "id": "m1",
+          "name": "Nasi Ayam Bakar Madu Spesial",
+          "price": 20000,
+          "badge": "⭐ Best Seller",
+          "desc": "Ayam empuk berbalut bumbu rempah madu murni, dibakar sempurna dengan sambal terasi segar.",
+          "image": "https://images.unsplash.com/photo-1555939594-58d7cb561ad1?w=500"
+        },
+        {
+          "id": "m2",
+          "name": "Nasi Liwet Sunda Komplit",
+          "price": 22000,
+          "badge": "🔥 Favorit",
+          "desc": "Nasi liwet gurih beraroma serai, disajikan dengan ikan asin, petai goreng, tahu, tempe, dan lalapan.",
+          "image": "https://images.unsplash.com/photo-1543339308-43e59d6b73a6?w=500"
+        },
+        {
+          "id": "m3",
+          "name": "Nasi Campur Bali Serasi",
+          "price": 25000,
+          "badge": "New",
+          "desc": "Perpaduan nasi putih hangat dengan ayam sisit suwir, sate lilit khas, urap sayur, dan sambal matah.",
+          "image": "https://images.unsplash.com/photo-1569718212165-3a8278d5f624?w=500"
+        }
+      ]
+    },
+    {
+      "id": "minuman",
+      "name": "🥤 Minuman & Penyegar",
+      "items": [
+        {
+          "id": "m4",
+          "name": "Es Teh Manis Melati",
+          "price": 5000,
+          "badge": "Segar",
+          "desc": "Teh pilihan berkualitas dengan aroma melati alami dan manis gula tebu asli.",
+          "image": "https://images.unsplash.com/photo-1556679343-c7306c1976bc?w=500"
+        },
+        {
+          "id": "m5",
+          "name": "Es Jeruk Peras Murni",
+          "price": 7000,
+          "badge": "Vitamin C",
+          "desc": "Terbuat dari 100% buah jeruk segar pilihan yang diperas langsung setiap ada pesanan.",
+          "image": "https://images.unsplash.com/photo-1613478223719-2ab802602423?w=500"
+        }
+      ]
+    }
+  ]
+}

@@ -15,10 +15,11 @@
 </head>
 <body class="bg-gray-50 text-gray-800 antialiased min-h-screen flex flex-col justify-between pb-28">
 
-    <div>
-        <!-- Running Text / Marquee di Paling Atas (Isi diganti Deskripsi Porsi Besar/Hajatan) -->
+    <!-- Container Header & Marquee yang dibuat Permanen di Atas (Sticky) -->
+    <div class="sticky top-0 z-30 shadow-md">
+        <!-- Running Text / Marquee (Kecepatan diperlambat jadi 45s) -->
         <div class="bg-amber-900 text-amber-100 text-xs py-2 overflow-hidden whitespace-nowrap shadow-inner">
-            <div class="inline-block animate-[marquee_25s_linear_infinite]">
+            <div class="inline-block animate-[marquee_45s_linear_infinite]">
                 📢 Selamat Datang di Pawon Moza Harmoni! &nbsp;&bull;&nbsp; Kami siap melayani pesanan porsi besar & catering acara: Hajatan Pernikahan, Aqiqah, Tasyakuran, Arisan, Rapat Kantor, dan Acara Keluarga. &nbsp;&bull;&nbsp; Cita rasa masakan rumahan yang lezat dan higienis. &nbsp;&bull;&nbsp; Hubungi kami via WhatsApp untuk konsultasi menu & penawaran khusus! 📢
             </div>
         </div>
@@ -28,24 +29,24 @@
                 0% { transform: translateX(100%); }
                 100% { transform: translateX(-100%); }
             }
-            .animate-\[marquee_25s_linear_infinite\] {
-                animation: marquee 25s linear infinite;
+            .animate-\[marquee_45s_linear_infinite\] {
+                animation: marquee 45s linear infinite;
             }
-            .animate-\[marquee_25s_linear_infinite\]:hover {
+            .animate-\[marquee_45s_linear_infinite\]:hover {
                 animation-play-state: paused;
             }
         </style>
 
         <!-- Header / Banner -->
-        <header class="bg-gradient-to-r from-amber-600 to-amber-700 text-white shadow-lg">
-            <div class="max-w-3xl mx-auto px-4 py-6 text-center">
+        <header class="bg-gradient-to-r from-amber-600 to-amber-700 text-white">
+            <div class="max-w-3xl mx-auto px-4 py-5 text-center">
                 <!-- Info Tanggal & Jam Real-Time -->
                 <div class="mb-2 text-xs font-medium text-amber-200 bg-amber-800/40 inline-block px-3 py-1 rounded-full backdrop-blur-sm shadow-inner" id="live-clock">
                     Memuat waktu...
                 </div>
                 
                 <h1 class="text-2xl sm:text-3xl font-extrabold tracking-tight" id="store-title">PAWON MOZA HARMONI</h1>
-                <p class="text-amber-100 text-sm mt-1 max-w-md mx-auto" id="store-tagline">Sentuhan Rasa Autentik Masakan Rumahan Berkualitas</p>
+                <p class="text-amber-100 text-sm mt-1 max-w-md mx-auto" id="store-tagline">Masakan Rumahan Berkualitas</p>
                 
                 <!-- Status Toko Badge -->
                 <div class="inline-flex items-center gap-1.5 mt-3 px-3.5 py-1 rounded-full text-xs font-semibold bg-emerald-600 text-emerald-50 shadow-sm">
@@ -54,28 +55,28 @@
                 </div>
             </div>
         </header>
-
-        <!-- Main Content -->
-        <main class="max-w-3xl mx-auto px-4 mt-6">
-            
-            <!-- Search Section -->
-            <div class="mb-6">
-                <div class="relative shadow-sm">
-                    <input type="text" id="search-input" placeholder="Cari menu masakan matang..." 
-                        class="w-full px-4 py-3.5 pl-11 bg-white border border-gray-200 rounded-2xl text-sm focus:outline-none focus:ring-2 focus:ring-amber-500 transition">
-                    <svg class="w-5 h-5 text-gray-400 absolute left-3.5 top-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path>
-                    </svg>
-                </div>
-            </div>
-
-            <!-- Daftar Menu Grid -->
-            <div id="menu-container" class="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                <!-- Data dimuat dinamis dari JavaScript -->
-            </div>
-
-        </main>
     </div>
+
+    <!-- Main Content -->
+    <main class="max-w-3xl mx-auto px-4 mt-6 flex-1 w-full">
+        
+        <!-- Search Section -->
+        <div class="mb-6">
+            <div class="relative shadow-sm">
+                <input type="text" id="search-input" placeholder="Cari menu masakan matang..." 
+                    class="w-full px-4 py-3.5 pl-11 bg-white border border-gray-200 rounded-2xl text-sm focus:outline-none focus:ring-2 focus:ring-amber-500 transition">
+                <svg class="w-5 h-5 text-gray-400 absolute left-3.5 top-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path>
+                </svg>
+            </div>
+        </div>
+
+        <!-- Daftar Menu Grid -->
+        <div id="menu-container" class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+            <!-- Data dimuat dinamis dari JavaScript -->
+        </div>
+
+    </main>
 
     <!-- Tombol Mengambang (Floating) WhatsApp untuk Konsultasi Porsi Besar / Acara -->
     <a href="https://wa.me/6282110203644?text=Halo%20Pawon%20Moza%20Harmoni,%20saya%20ingin%20konsultasi/pesan%20untuk%20keperluan%20acara/porsi%20besar." target="_blank" 
